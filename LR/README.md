@@ -2,7 +2,10 @@
 
 ## mnist
 
-mnist手写体识别是一个经典的问题。TensorFlow官方例子中给出的是使用CNN网络实现识别。此处参照TensorFlow官方例子和[TensorFlow实现逻辑回归分类器](https://blog.csdn.net/diligent_321/article/details/52937400)给出一个使用传统机器学习算法“逻辑回归”实现识别的demo。
+mnist手写体识别是一个经典的问题。TensorFlow官方例子中给出的是使用卷积神经网络（CNN）实现识别。此处参照TensorFlow官方例子和[TensorFlow实现逻辑回归分类器](https://blog.csdn.net/diligent_321/article/details/52937400)给出一个使用传统机器学习算法“逻辑回归”实现识别的demo。但是需要说明的是使用“逻辑回归”分类效果实际是不如卷积神经网络的。此处只是为了学习TensorFlow如何实现“逻辑回归”分类算法，以及借助TensorBoard了解逻辑回归算法构建的graph。
+
+实际可以简单的认为“逻辑回归”是一种只有一层的最简单的全联接的神经网络。但是在最基础的神经网络中，图像的像素点对应神经元，随着隐藏层神经元数量的增多，参数的规模也会极具增加，训练效率低，也容易出现过拟合。而图像本身具有部分平移不变性和局部相关性的特点，采用全连接的网络很难提取这些局部不变特征。但是采用卷积神经网络则可以通过局部连接和参数共享，更好的利用图像中内在的拓扑关系及平移不变形，大大减少参数，得到一个更好的局部最优解，使其在图像问题上有更好的性能。
+
 
 ### 代码说明
 
@@ -25,6 +28,10 @@ mnist_with_namescope.py文件使用namescope添加名称和作用域优化graph�
 ### 参考文档：
 
 [详解 MNIST 数据集](https://blog.csdn.net/simple_the_best/article/details/75267863)
+
+[ImageNet冠军带你入门计算机视觉：卷积神经网络](https://mp.weixin.qq.com/s?__biz=MzU1NDA4NjU2MA==&mid=2247487127&idx=1&sn=30f89932c0e22cfc1c07995d41fc0b34&chksm=fbe9b758cc9e3e4eb0723ba747aa8087e80454175c46568d7f6ad2858f8e5a365e96f9b51c3e&scene=0&key=488598e887e7880d6ba61a5fff02116fdd52594c0b44a3a91e793fade588d4deeb4020b342a50b53d1d9a242faf93f59205965cd4d67359b5b2881120992ffb52494caca2a04724ec7f99c025f21e61e&ascene=0&uin=MjM0OTM3NDc4MA%3D%3D&devicetype=iMac+MacBookPro14%2C1+OSX+OSX+10.12.5+build(16F2073)&version=12020810&nettype=WIFI&fontScale=100&pass_ticket=tlai%2Bhw8iyY0bx9A1QCQqL6P1GA0UE7DXe49hEOEUtIpoEMA5tpWS66mawBEm0jj)
+
+[卷积神经网络](https://nndl.github.io/chap-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.pdf)
 
 [TensorBoard:可视化学习](http://wiki.jikexueyuan.com/project/tensorflow-zh/how_tos/summaries_and_tensorboard.html)
 
